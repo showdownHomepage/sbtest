@@ -4,6 +4,7 @@ import kr.test.boardtest.dto.BoardDto;
 import kr.test.boardtest.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -35,5 +36,12 @@ public class BoardController {
         boardService.savePost(boardDto);
 
         return "redirect:/";
+    }
+
+    @DeleteMapping("/")
+    public String delete(BoardDto boardDto) {
+        boardService.deletePost(boardDto);
+
+        return "board/list.html";
     }
 }

@@ -41,4 +41,9 @@ public class BoardService {
 
         return boardDtoList;
     }
+
+    @Transactional
+    public void deletePost(BoardDto boardDto) {
+        boardRepository.delete(boardDto.toEntity());
+    }
 }
